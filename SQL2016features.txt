@@ -1,0 +1,29 @@
+##################################
+SQL SERVER 2016 Features
+##################################
+
+Database Engine:
+
+Multiple tempdb's can be setup during installation
+JSON support is now available
+Temporal tables are history tables which store data changes
+Polybase query engine integrates external data in HDFS or Azure blob storage
+New Query store stores query text, execution plans and performance issues
+Stretch database feature lets you dynamically, securly archive data from local sql server db to Azure Db
+In=memory OLTP supports tables upto 2 tb
+
+SQL 2016 Analysis service:
+
+SQL server R service integrates R language
+Direct query can query live external data
+
+SSIS 2016:
+
+support HDFS
+incremental package deployment
+column names for errors
+
+
+SSRS 2016:
+
+Web report portal
