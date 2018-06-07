@@ -1,0 +1,282 @@
+####################################
+SQL Query Performance, Optimisation
+####################################
+
+
+Q:-1. What is SQL Query Optimization?
+
+Ans. Query Optimization is the process of writing the query in a way so that it could execute quickly. It is a significant step for any standard application.
+
+ 
+
+Q:-2. What are some tips to improve the performance of SQL queries?
+
+Ans. Optimizing SQL queries can bring substantial positive impact on the performance. It also depends on the level of RDBMS knowledge you have. Let’s now go over some of the tips for tuning SQL queries.
+
+1. Prefer to use views and stored procedures in spite of writing long queries. It’ll also help in minimizing network load.
+
+2. It’s better to introduce constraints instead of triggers. They are more efficient than triggers and can increase performance.
+
+3. Make use of table-level variables instead of temporary tables.
+
+4. The UNION ALL clause responds faster than UNION. It doesn’t look for duplicate rows whereas the UNION statement does that regardless of whether they exist or not.
+
+5. Prevent the usage of DISTINCT and HAVING clauses.
+
+6. Avoid excessive use of SQL cursors.
+
+7. Make use of SET NOCOUNT ON clause while building stored procedures. It represents the rows affected by a T-SQL statement. It would lead to reduced network traffic.
+
+8. It’s a good practice to return the required column instead of all the columns of a table.
+
+9. Prefer not to use complex joins and avoid disproportionate use of triggers.
+
+10. Create indexes for tables and adhere to the standards.
+
+ 
+
+
+ 
+Q:-3. What are the bottlenecks that affect the performance of a Database?
+
+Ans. In a web application, the database tier can prove to be a critical bottleneck in achieving the last mile of scalability. If a database has performance leakage, that can become a bottleneck and likely to cause the issue. Some of the common performance issues are as follows.
+
+1. Abnormal CPU usage is the most obvious performance bottleneck. However, you can fix it by extending CPU units or replacing with an advanced CPU. It may look like a simple issue but abnormal CPU usage can lead to other problems.
+
+2. Low memory is the next most common bottleneck. If the server isn’t able to manage the peak load, then it poses a big question mark on the performance. For any application, memory is very critical to perform as it’s way faster than the persistent memory. Also, when the RAM goes down to a specific threshold, then the OS turns to utilize the swap memory. But it makes the application to run very slow.
+
+You can resolve it by expanding the physical RAM, but it won’t solve memory leaks if there is any. In such a case, you need to profile the application to identify the potential leaks within its code.
+
+3. Too much dependency on external storage like SATA disk could also come as a bottleneck. Its impact gets visible while writing large data to the disk. If output operations are very slow, then it is a clear indication an issue becoming the bottleneck.
+
+In such cases, you need to do scaling. Replace the existing drive with a faster one. Try upgrading to an SSD hard drive or something similar.
+
+ 
+
+Q:-4. What are the steps involved in improving the SQL performance?
+
+Ans.
+
+Discover – First of all, find out the areas of improvement. Explore tools like Profiler, Query execution plans, SQL tuning advisor, dynamic views, and custom stored procedures.
+
+Review – Brainstorm the data available to isolate the main issues.
+
+Propose – Here is a standard approach one can adapt to boost the performance. However, you can customize it further to maximize the benefits.
+
+1. Identify fields and create indexes.
+2. Modify large queries to make use of indexes created.
+3. Refresh table and views and update statistics.
+4. Reset existing indexes and remove unused ones.
+5. Look for dead blocks and remove them.
+
+Validate – Test the SQL performance tuning approach. Monitor the progress at a regular interval. Also, track if there is any adverse impact on other parts of the application.
+
+Publish – Now, it’s time to share the working solution with everyone in the team. Let them know all the best practices so that they can use it with ease.
+
+Back to top
+
+Q:-5. What is a explain plan?
+
+Ans. It’s a term used in Oracle. And it is a type of SQL clause in Oracle which displays the execution plan that its optimizer plans for executing the SELECT/UPDATE/INSERT/DELETE statements.
+
+Q:-6. How do you analyze an explain plan?
+
+Ans. While analyzing the explain plan, check the following areas.
+
+1. Driving Table
+2. Join Order
+3. Join Method
+4. Unintentional cartesian product
+5. Nested loops, merge sort, and hash join
+6. Full Table Scan
+7. Unused indexes
+8. Access paths
+
+Q:-7. How do you tune a query using the explain plan?
+
+Ans. The explain plan shows a complete output of the query costs including each subquery. The cost is directly proportional to the query execution time. The plan also depicts the problem in queries or sub-queries while fetching data from the query.
+
+ 
+
+Q:-8. What is Summary advisor and what type of information does it provide?
+
+Ans. Summary advisor is a tool for filtering and materializing the views. It can help in elevating the SQL performance by selecting the proper set of materialized views for a given workload. And it also provides data about the Materialized view recommendations.
+
+ 
+
+Q:-9. What could most likely cause a SQL query to run as slow as 5 minutes?
+
+Ans. Most probably, a sudden surge in the volume of data in a particular table could slow down the output of a SQL query. So collect the required stats for the target table. Also, monitor any change in the DB level or within the underlying object level.
+
+ 
+
+Q:-10. What is a Latch Free Event? And when does it occur? Alos, how does the system handles it?
+
+Ans. In Oracle, Latch Free wait event occurs when a session requires a latch, attempts to get it but fails because someone else has it.
+
+So it sleeps with a wait eying for the latch to get free, wakes up and tries again. The time duration for it was inactive is the wait time for Latch Free. Also, there is no ordered queue for the waiters on a latch, so the one who comes first gets it.
+
+Back to top
+
+Q:-11. What is Proactive tuning and Reactive tuning?
+
+Ans.
+
+Proactive tuning – The architect or the DBA determines which combination of system resources and available Oracle features fulfill the criteria during Design and Development.
+
+Reactive tuning – It is the bottom-up approach to discover and eliminate the bottlenecks. The objective is to make Oracle respond faster.
+
+ 
+
+Q:-12. What are Rule-based Optimizer and Cost-based Optimizer?
+
+Ans. Oracle determines how to get the required data for processing a valid SQL statement. It uses one of following two methods to take this decision.
+
+Rule-based Optimizer – When a server doesn’t have internal statistics supporting the objects referenced by the statement, then the RBO method gets preference. However, Oracle will deprecate this method in the future releases.
+
+Cost-based Optimizer – When there is an abundance of the internal statistics, the CBO gets the precedence. It verifies several possible execution plans and chooses the one with the lowest cost based on the system resources.
+
+ 
+
+Q:-13. What are several SQL performance tuning enhancements in Oracle?
+
+Ans. Oracle provides many performance enhancements, some of them are:
+
+1. Automatic Performance Diagnostic and Tuning Features
+2. Automatic Shared Memory Management – It gives Oracle control of allocating memory within the SGA.
+3. Wait-model improvements – A number of views have come to boost the Wait-model.
+4. Automatic Optimizer Statistics Collection – Collects optimizer statistics using a scheduled job called GATHER_STATS_JOB.
+5. Dynamic Sampling – Enables the server to enhance performance.
+6. CPU Costing – It’s the basic cost model for the optimizer (CPU+I/O), with the cost unit as time optimizer notifies.
+7. Rule Based Optimizer Obsolescence – No more used.
+8. Tracing Enhancements – End to End tracing which allows a client process to be identified via the Client Identifier instead of using the typical Session ID.
+
+ 
+
+Q:-14. What are the tuning indicators Oracle proposes?
+
+Ans. The following high-level tuning indicators are available to establish if a database is experiencing bottlenecks or not:
+
+1. Buffer Cache Hit Ratio.
+
+It uses the following formula.
+
+Hit Ratio = (Logical Reads – Physical Reads) / Logical Reads
+
+Action: Advance the DB_CACHE_SIZE (DB_BLOCK_BUFFERS prior to 9i) to improve the hit ratio.
+
+2. Library Cache Hit Ratio.
+
+Action: Advance the SHARED_POOL_SIZE to increase the hit ratio.
+
+ 
+
+Q:-15. What do you check first if there are multiple fragments in the SYSTEM tablespace?
+
+Ans. First of all, check if the users don’t have the SYSTEM tablespace as their TEMPORARY or DEFAULT tablespace assignment by verifying the DBA_USERS view.
+
+Back to top
+
+Q:-16. When would you add more Copy Latches? What are the parameters that control the Copy Latches?
+
+Ans. If there is excessive contention for the Copy Latches, check from the “redo copy” latch hit ratio.
+
+In such a case, add more Copy Latches via the initialization parameter LOG_SIMULTANEOUS_COPIES to double the number of CPUs available.
+
+ 
+
+Q:-17. How do you confirm if a tablespace has disproportionate fragmentation?
+
+Ans. You can confirm it by checking the output of SELECT against the dba_free_space table. If it points that the no. of a tablespaces extents is more than the count of its data files, then it proves excessive fragmentation.
+
+ 
+
+Q:-18. What can you do to optimize the %XYZ% queries?
+
+Ans. First of all, set the optimizer to scan all the entries from the index instead of the table. You can achieve it by specifying hints.
+
+Please note that crawling the smaller index takes less time than to scan the entire table.
+
+ 
+
+Q:-19. Where does the I/O statistics per table exist in Oracle?
+
+Ans. There is a report known as UTLESTAT which displays the I/O per tablespace. But it doesn’t help to find the table which has the most I/O.
+
+ 
+
+Q:-20. When is the right time to rebuild an index?
+
+Ans. First of all, select the target index and run the ‘ANALYZE INDEX VALIDATE STRUCTURE’ command. Every time you run it, a single row will get created in the INDEX_STATS view.
+
+But the row gets overwritten the next time you run the ANALYZE INDEX command. So better move the contents of the view to a local table. Thereafter, analyze the ratio of ‘DEL_LF_ROWS’ to ‘LF_ROWS’ and see if you need to rebuild the index.
+
+ 
+
+Q:-21. What exactly would you do to check the performance issue of SQL queries?
+
+Ans. Mostly the database isn’t slow, but it’s the worker session which drags the performance. And it’s the abnormal session accesses which cause the bottlenecks.
+
+1. Review the events that are in wait or listening mode.
+2. Hunt down the locked objects in a particular session.
+3. Check if the SQL query is pointing to the right index or not.
+4. Launch SQL Tuning Advisor and analyze the target SQL_ID for making any performance recommendation.
+5. Run the “free” command to check the RAM usage. Also, use TOP command to identify any process hogging the CPU.
+
+Back to top
+
+Q:-22. What is the information you get from the STATSPACK Report?
+
+Ans. We can get the following statistics from the STATSPACK report.
+
+1. WAIT notifiers
+2. Load profile
+3. Instance Efficiency Hit Ratio
+4. Latch Waits
+5. Top SQL
+6. Instance Action
+7. File I/O and Segment Stats
+8. Memory allocation
+9. Buffer Waits
+
+ 
+
+Q:-23. What are the factors to consider for creating Index on Table? Also, How to select a column for Index?
+
+Ans. Creation of index depends on the following factors.
+
+1. Size of table,
+2. Volume of data
+
+If Table size is large and we need a smaller report, then it’s better to create Index.
+
+Regarding the column to be used for Index, as per the business rule, you should use a primary key or a unique key for creating a unique index.
+
+ 
+
+Q:-24. What is the main difference between Redo, Rollback, and Undo?
+
+Ans.
+
+Redo – Log that records all changes made to data, including both uncommitted and committed changes.
+
+Rollback – Segments to store the previous state of data before the changes.
+
+Undo – Helpful in building a read consistent view of data. The data gets stored in the undo tablespace.
+
+ 
+
+Q:-25. How do you identify the shared memory and semaphores of a particular DB instance if there are running multiple servers?
+
+Ans. Set the following parameters to distinguish between the in-memory resources of a DB instance.
+
+1. SETMYPID
+2. IPC
+3. TRACEFILE_NAME
+
+Use the ORADEBUG command to explore their underlying options.
+
+Back to top
+
+Summary – 25 SQL Performance Interview Questions.
+Hope, you’d enjoyed reading the SQL performance tuning interview questions which we primarily focussed on Oracle. But we also added some generic questions which can apply to all databases.
